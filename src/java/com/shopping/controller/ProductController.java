@@ -35,15 +35,15 @@ public class ProductController {
     public String getDetail(HttpSession session,@PathVariable Integer id, Model model,HttpServletRequest request) throws Exception  {
         Product p = ps.findById(id);
          System.out.println(p.getNamaBarang());
-        model.addAttribute("p",p);
+        session.setAttribute("p",p);
         return "detail";
     }
     @RequestMapping(value="/tambahkan")
     public String keranjang(HttpSession session, Model model) {
         List<Product> cart = (List<Product>) session.getAttribute("productcart");
-        cart.add((Product) session.getAttribute("detailproduk"));
+        //model.addAttribute("data", (Product) session.getAttribute("p"));
+        cart.add((Product) session.getAttribute("p"));
         session.removeAttribute("detailproduk");
-        session.setAttribute("productcart", productcart);
         return "tambah";
     }
 }

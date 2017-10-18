@@ -24,9 +24,10 @@
                             <div class="col-sm-6">
                                 <p>
                                 <h4 class="card-title">${p.namaBarang}</h4>
-                                <a href="productcart/hapus/${p.id}"class="btn btn-primary">Hapus</a>
+                                <a href="productcart/hapus/${p.id}"class="btn btn-primary">Hapus</a><br/>
                             </div>
                         </c:forEach>
                     </div>
+                    <p><a href="home">Kembali</a></p>
                     </body>
                     </html>

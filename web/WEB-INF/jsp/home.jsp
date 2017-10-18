@@ -16,7 +16,10 @@
         <div class="container">
             <div class="card">
                 <div class="card-header text-center">
-                    <h1>${msg}</h1>
+                    
+                    <h1><img src="<c:url value="/resources/img/shopping-cart.png"/>"/>
+                        ${msg}
+                    </h1>
                     <a href="productcart" ><h2>Jumlah belanjaan: ${productcart.size()}</h2></a>
                 </div>
                 <div class="card-body">
@@ -24,6 +27,7 @@
                         <c:forEach items="${daftarProduk}" var="p">
                             <div class="col-sm-6">
                                 <p>
+                                <img src="<c:url value="/resources/img/shopping-apps_660_061815125443.jpg"/>"/> 
                                 <h4 class="card-title">${p.namaBarang}</h4>
                                 <p class="card-text">${p.harga}</p>
                                 <a href="detail/${p.id}" class="btn btn-primary">Lihat Detail</a>

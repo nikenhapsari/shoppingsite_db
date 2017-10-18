@@ -14,11 +14,18 @@
     </head>
     <body>
         <div class="container">
-        <b>Nama Barang: ${p.namaBarang}</b><br/>
-        <b>Detail Barang: ${p.keterangan}</b><br/>
-        <b>Harga Barang: ${p.harga}</b><br/>
-        <a href="tambahkan"><button name="tambah" value="submit">Tambah ke Keranjang</button></a>
-        <a href="home"><button name="tambah" >Kembali</button></a>
+            <div class="card">
+                <div class="card-header text-center">
+                    <h1>Detail ${p.namaBarang}</h1>
+                </div>
+                <div class="card-body">
+                    <b>Nama Barang: ${p.namaBarang}</b><br/>
+                    <b>Detail Barang: ${p.keterangan}</b><br/>
+                    <b>Harga Barang: ${p.harga}</b><br/>
+                    <a href="tambahkan" class="btn btn-primary">Tambah ke Keranjang</a>
+                    <a href="../home">Kembali</a>
+                </div>
+            </div>
         </div>
     </body>
 </html>

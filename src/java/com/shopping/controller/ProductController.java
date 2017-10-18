@@ -29,19 +29,21 @@ public class ProductController {
     @Autowired
     ProductServices ps;
     
+     List<Product> productcart = new ArrayList<Product>();
+    
      @RequestMapping("/{id}")
     public String getDetail(HttpSession session,@PathVariable Integer id, Model model,HttpServletRequest request) throws Exception  {
         Product p = ps.findById(id);
          System.out.println(p.getNamaBarang());
         model.addAttribute("p",p);
-        session.setAttribute("productcart", p);
         return "detail";
     }
     @RequestMapping(value="/tambahkan")
     public String keranjang(HttpSession session, Model model) {
-        List<Product> cart = (List<Product>) session.getAttribute("keranjang");
+        List<Product> cart = (List<Product>) session.getAttribute("productcart");
         cart.add((Product) session.getAttribute("detailproduk"));
         session.removeAttribute("detailproduk");
+        session.setAttribute("productcart", productcart);
         return "tambah";
     }
 }

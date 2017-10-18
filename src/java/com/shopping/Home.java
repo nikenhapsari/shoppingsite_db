@@ -25,7 +25,7 @@ public class Home {
     @Autowired
     ProductServices ps;
     
-    List<Product> keranjang = new ArrayList<Product>();
+    List<Product> productcart = new ArrayList<Product>();
     
     @RequestMapping()
     public String home(HttpSession session, Model model) {
@@ -33,7 +33,7 @@ public class Home {
         daftarProduk= ps.findAll();
         model.addAttribute("msg", "HALAMAN UTAMA NIKEN SHOP");
         model.addAttribute("daftarProduk",daftarProduk);
-        session.setAttribute("keranjang", keranjang);
+        session.setAttribute("productcart", productcart);
         return "home";
     }
     

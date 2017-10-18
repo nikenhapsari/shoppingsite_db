@@ -10,10 +10,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link href="<c:url value="/resources/css/bootstrap.css" />" rel="stylesheet"/>
     </head>
     <body>
+        <div class="container">
         <h1>${msg}</h1>
-        <a href="keranjang" ><h2>Jumlah belanjaan: ${keranjang.size()}</h2></a>
+        <a href="productcart" ><h2>Jumlah belanjaan: ${productcart.size()}</h2></a>
     <c:forEach items="${daftarProduk}" var="p">
         <p>
         ${p.namaBarang}<br/>
@@ -21,5 +23,6 @@
         <a href="detail/${p.id}">Lihat Detail</a>
         </p>
     </c:forEach>
+        </div>
 </body>
 </html>

@@ -28,7 +28,7 @@ public class KeranjangController {
     }
     
     @RequestMapping(value = "/hapus/{id}")
-    public String isiKeranjang(HttpSession session,@PathVariable Integer id){
+    public String isiKeranjang(HttpSession session,@PathVariable("id") Integer id){
         List<Product> pr = (List<Product>) session.getAttribute("productcart");
         int penampung=0;
         for (int i = 0; i < pr.size(); i++) {

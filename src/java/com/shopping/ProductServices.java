@@ -5,7 +5,7 @@
  */
 package com.shopping;
 
-import com.shopping.Product.Product;
+import com.shopping.model.Product;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

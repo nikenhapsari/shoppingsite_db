@@ -13,7 +13,8 @@
     </head>
     <body>
         <h1>${msg}</h1>
-    <c:forEach items="${daftarProduct}" var="p">
+        <a href="keranjang" ><h2>Jumlah belanjaan: ${keranjang.size()}</h2></a>
+    <c:forEach items="${daftarProduk}" var="p">
         <p>
         ${p.namaBarang}<br/>
         ${p.harga}<br/>

@@ -5,11 +5,13 @@
  */
 package com.shopping.controller;
 
-import com.shopping.Product.Keranjang;
-import com.shopping.Product.Product;
+import com.shopping.model.Product;
 import com.shopping.ProductServices;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,12 +26,22 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/detail")
 public class ProductController {
-     @RequestMapping(value="/{id}")
-    public String getDetail(HttpSession session,@PathVariable("id") Integer id, Model model,HttpServletRequest request) throws Exception  {
-        ProductServices products = new ProductServices();
-        Product p = products.findById(Integer.parseInt(request.getParameter(id.toString())));
+    @Autowired
+    ProductServices ps;
+    
+     @RequestMapping("/{id}")
+    public String getDetail(HttpSession session,@PathVariable Integer id, Model model,HttpServletRequest request) throws Exception  {
+        Product p = ps.findById(id);
          System.out.println(p.getNamaBarang());
         model.addAttribute("p",p);
+        session.setAttribute("productcart", p);
         return "detail";
+    }
+    @RequestMapping(value="/tambahkan")
+    public String keranjang(HttpSession session, Model model) {
+        List<Product> cart = (List<Product>) session.getAttribute("keranjang");
+        cart.add((Product) session.getAttribute("detailproduk"));
+        session.removeAttribute("detailproduk");
+        return "tambah";
     }
 }

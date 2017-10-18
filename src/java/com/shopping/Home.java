@@ -5,8 +5,7 @@
  */
 package com.shopping;
 
-import com.shopping.Product.Keranjang;
-import com.shopping.Product.Product;
+import com.shopping.model.Product;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpSession;
@@ -26,13 +25,16 @@ public class Home {
     @Autowired
     ProductServices ps;
     
+    List<Product> keranjang = new ArrayList<Product>();
+    
     @RequestMapping()
     public String home(HttpSession session, Model model) {
-        Keranjang cart = new Keranjang("Niken");
-        List<Product> daftarProduct = ps.findAll();
+        List<Product> daftarProduk = new ArrayList<Product>();
+        daftarProduk= ps.findAll();
         model.addAttribute("msg", "HALAMAN UTAMA NIKEN SHOP");
-        model.addAttribute("daftarProduct",daftarProduct);
-        session.setAttribute("cart", cart);
+        model.addAttribute("daftarProduk",daftarProduk);
+        session.setAttribute("keranjang", keranjang);
         return "home";
     }
+    
 }

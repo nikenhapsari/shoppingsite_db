@@ -13,8 +13,10 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-        <b>Nama Barang: ${p.namaBarang}</b>
-        <b>Detail Barang: ${p.keterangan}</b>
-        <b>Harga Barang: ${p.harga}</b>
+        <b>Nama Barang: ${p.namaBarang}</b><br/>
+        <b>Detail Barang: ${p.keterangan}</b><br/>
+        <b>Harga Barang: ${p.harga}</b><br/>
+        <a href="tambahkan"><button name="tambah" value="submit">Tambah ke Keranjang</button></a>
+        <a href="home"><button name="tambah" >Kembali</button></a>
     </body>
 </html>

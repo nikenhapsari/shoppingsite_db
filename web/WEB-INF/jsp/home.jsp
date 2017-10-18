@@ -14,15 +14,25 @@
     </head>
     <body>
         <div class="container">
-            <h1>${msg}</h1>
-            <a href="productcart" ><h2>Jumlah belanjaan: ${productcart.size()}</h2></a>
-            <c:forEach items="${daftarProduk}" var="p">
-                <p>
-                    ${p.namaBarang}<br/>
-                    ${p.harga}<br/>
-                    <a href="detail/${p.id}">Lihat Detail</a>
-                </p>
-            </c:forEach>
+            <div class="card">
+                <div class="card-header text-center">
+                    <h1>${msg}</h1>
+                    <a href="productcart" ><h2>Jumlah belanjaan: ${productcart.size()}</h2></a>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <c:forEach items="${daftarProduk}" var="p">
+                            <div class="col-sm-6">
+                                <p>
+                                <h4 class="card-title">${p.namaBarang}</h4>
+                                <p class="card-text">${p.harga}</p>
+                                <a href="detail/${p.id}" class="btn btn-primary">Lihat Detail</a>
+                                </p>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 </html>

@@ -31,7 +31,7 @@ public class Home {
     public String home(HttpSession session, Model model) {
         List<Product> daftarProduk = new ArrayList<Product>();
         daftarProduk= ps.findAll();
-        model.addAttribute("msg", "HALAMAN UTAMA NIKEN SHOP");
+        model.addAttribute("msg", "WELCOME TO NIKEN SHOP");
         model.addAttribute("daftarProduk",daftarProduk);
         session.setAttribute("productcart", productcart);
         return "home";
